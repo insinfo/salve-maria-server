@@ -8,14 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use  App\Util\DBLayer;
 
 
-class  SolicitacaoController{
-   /* public function __invoke(Request $request, Response $response, array $args): Response
-    {
-        $this->setParams($request, $response, $args);
-        $input = $this->getInput();
-        $user = $this->getUserService()->createUser($input);
-        return $this->jsonResponse('success', $user, 201);
-    }*/
+class  SolicitacaoController{   
 
     public static function getAll(Request $request, Response $response, array $args){
         DBLayer::Connect();
