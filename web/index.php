@@ -7,6 +7,7 @@ $CACHE_DIR = $BASE_DIR.'/cache';
 //require '../vendor/autoload.php';
 require __DIR__ . '/../vendor/autoload.php';
 
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -15,6 +16,7 @@ use DI\Container;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 //use Slim\Views\TwigMiddleware;
+
 
 
 use Psr\Container\ContainerInterface;
@@ -101,21 +103,17 @@ $twig = new Twig($VIEWS_DIR, ['cache' => false]/*['cache' => $CACHE_DIR]*/);
 $twigMiddleware = new TwigMiddleware($twig, $app->getContainer(), $routeParser);
 $app->add($twigMiddleware);
 
-
-$app->get('/', function (Request $request, Response $response, array $args) {
- 
-  //$response->getBody()->write("Hello");
-  // return $response;
-    return $this->get('view')->render($response, 'home.html');
- 
-});
-
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    return $response;
-});
+require __DIR__ .'/../src/routes.php';
 
 $app->run();
 
 
+
+
+ function mypriny(string $input,$tag=null){
+    $re= " $input </br>";
+    if($tag != null){
+      $re = "$tag ".$re;
+    }
+     echo $re;
+ }

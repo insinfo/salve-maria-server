@@ -1,11 +1,35 @@
-{
+{ 
+  "name": "insinfo/salve-maria-server",
+  "description": "REST API with Slim PHP Framework.",
+  "keywords": ["php", "slim-micro-framework", "rest-api", "mysql", "slim3", "slim", "rest", "api"],
+  "homepage": "https://github.com/insinfo/salve-maria-server",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Isaque Neves",
+          "email": "insinfo2008@gmail.com",
+          "homepage": "https://github.com/insinfo"
+      }
+  ],
   "require" : {   
     "slim/slim": "^4.2",
     "slim/twig-view": "^2.5",
     "slim/psr7": "^0.5.0",
-    "php-di/php-di": "^6.0"
+    "php-di/php-di": "^6.0",
+
+    "illuminate/database": "5.2"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
+  },
+  "autoload": {
+    "psr-4" : {
+      "App\\": "src/"
+    }
+  },
+    "scripts": {
+      "start": "php -S localhost:8888 -t web web/index.php"     
+  
   }
+
 }
